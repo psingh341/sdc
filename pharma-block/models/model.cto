@@ -1,0 +1,56 @@
+namespace org.hyperledger_composer.scms
+
+asset Product identified by certificateOfOrigin {
+ o String certificateOfOrigin
+ o String batchNumber
+ o String lotSize
+ o String expirationDate
+ o String shipmentDate
+ o String trackingNumber
+ o String freightTemperature
+ o String receivedDate
+ o String pickDate
+ o String customsTemperature
+ o String orderNumber
+ o String serialNumber
+ o String orderDate
+ o String invoiceNumber
+ o String retailerTemperature
+ --> Participant owner
+ --> Participant issuer
+}
+participant Manufacturer identified by companyName {
+ o String companyName
+ o String email
+ o String username
+ o String password
+}
+participant FreightandTransport identified by companyName {
+ o String companyName
+ o String email
+ o String username
+ o String password
+}
+participant Customs identified by companyName {
+ o String companyName
+ o String email
+ o String username
+ o String password
+}
+participant Distributor identified by companyName {
+ o String companyName
+ o String email
+ o String username
+ o String password
+}
+participant Retailer identified by companyName {
+ o String companyName
+ o String email
+ o String username
+ o String password
+}
+transaction MoveProduct {
+ --> Product product
+ --> Participant issuer
+ --> Participant newOwner
+}
